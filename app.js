@@ -37,15 +37,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.title = 'Pesquisa';
 
 
-// ADD CORS SETTINGS HERE TO ALLOW CROSS-ORIGIN INTERACTION:
-app.use(
-  cors({
-    credentials: true,
-    origin: ['https://ifb-pesquisa-industrias-df.vercel.app'] // <== this will be the URL of our React app (it will be running on port 3000)
-  })
-);
-
-
 // ROUTES MIDDLEWARE STARTS HERE:
 app.use('/api', require('./routes/project-routes'));
 
