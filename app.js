@@ -37,20 +37,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.title = 'Pesquisa';
 
 
-// ADD CORS SETTINGS HERE TO ALLOW CROSS-ORIGIN INTERACTION:
-const whitelistCors = [
-  "https://pesquisa-industrias-df.vercel.app"
-];
+app.use(cors())
 
-const corsOptions = {
-  origin: whitelistCors,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  credentials: true,
-};
-
-app.use(corsOptions)
 // ROUTES MIDDLEWARE STARTS HERE:
 app.use('/api', require('./routes/project-routes'));
 
