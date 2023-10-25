@@ -7,13 +7,6 @@ const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
 
-// WHEN INTRODUCING USERS DO THIS:
-// INSTALL THESE DEPENDENCIES: passport-local, passport, bcryptjs, express-session
-// AND UN-COMMENT OUT FOLLOWING LINES:
-
-
-// IF YOU STILL DIDN'T, GO TO 'configs/passport.js' AND UN-COMMENT OUT THE WHOLE FILE
-
 mongoose
   .connect(`${process.env.MONGODB_URI}/tcc-answers`, { useNewUrlParser: true })
   .then(x => {
@@ -37,9 +30,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.title = 'Pesquisa';
 
 
-app.use(cors())
+app.use(
+  cors({
+    origin: "https://ifb-pesquisa-industrias-df.vercel.app",
+  })
+);
 
-// ROUTES MIDDLEWARE STARTS HERE:
+
 app.use('/api', require('./routes/project-routes'));
 
 
