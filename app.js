@@ -30,13 +30,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.title = 'Pesquisa';
 
 
-app.use(
-  cors({
-    origin: "https://ifb-pesquisa-industrias-df.vercel.app",
-  })
-);
+app.use(cors());
+const index = require('./routes/index');
 
-
+app.use('/', index);
 app.use('/api', require('./routes/project-routes'));
 
 
