@@ -34,7 +34,7 @@ app.use(cors());
 const index = require('./routes/index');
 
 app.use('/', index);
-app.get('/api', require('./routes/project-routes'));
+app.use('/api', require('./routes/project-routes'));
 
 
 
