@@ -7,12 +7,14 @@ const Project = require('../models/project-model');
 
 // POST route => to create a new project
 router.post('/projects', (req, res, next) => {
-  const { email, indicator, answers } = req.body;
+  const { name, email, indicator, answers, empresa } = req.body;
 
   Project.create({
+    name,
     email,
     indicator,
-    answers: answers.map(answer => !!answer)
+    answers: answers.map(answer => !!answer),
+    empresa
   })
     .then(response => {
       res.json(response);
